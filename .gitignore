@@ -1,0 +1,15 @@
+/build
+/classes
+/out
+.gradle
+.DS_Store
+
+# Intellij
+*.ipr
+*.iws
+*.iml
+.idea/*
+!/.idea/runConfigurations
+
+/custom/*
+/target
