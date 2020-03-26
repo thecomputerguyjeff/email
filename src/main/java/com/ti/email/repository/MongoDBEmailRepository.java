@@ -23,6 +23,7 @@ public class MongoDBEmailRepository implements EmailRepository{
     @Override
     public List<Email> findAllBySendToEmailAddress(String emailAddress ) {
         Query query=query(where("sendToEmailAddress").is(emailAddress));
+        query.fields().exclude("_id").exclude("emailText");
         return operations.find(query,Email.class);
     }
 }

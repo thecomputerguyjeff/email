@@ -20,7 +20,7 @@ public class Email {
     @Id
     private String _id;
     private List<String> sendToEmailAddress;
-    private String sendFromEmailAddress;
+    private String sentFromEmailAddress;
     private String subject;
     private String emailText;
 
