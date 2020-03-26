@@ -23,4 +23,12 @@ public class Email {
     private String sendFromEmailAddress;
     private String subject;
     private String emailText;
+
+    //This is the format of the emails
+//    {
+//        "sendToEmailAddress":["string","string"],
+//        "sentFromEmailAddress":"string",
+//        "subject":"string",
+//        "emailText":"string"
+//    }
 }
