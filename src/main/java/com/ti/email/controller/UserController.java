@@ -1,9 +1,7 @@
 package com.ti.email.controller;
 
 import com.ti.email.model.Email;
-import com.ti.email.model.User;
 import com.ti.email.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -4,7 +4,6 @@ import com.ti.email.model.Email;
 import com.ti.email.model.User;
 import com.ti.email.repository.MongoDBEmailRepository;
 import com.ti.email.repository.MongoDBUserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
