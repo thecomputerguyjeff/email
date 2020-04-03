@@ -8,27 +8,18 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "email")
+@Document(collection = "user")
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Email {
+public class User {
     @Id
     private String _id;
-    private List<String> sendToEmailAddress;
-    private String sentFromEmailAddress;
-    private String subject;
-    private String emailText;
-
-    //This is the format of the emails
-//    {
-//        "sendToEmailAddress":["string","string"],
-//        "sentFromEmailAddress":"string",
-//        "subject":"string",
-//        "emailText":"string"
-//    }
+    private String name;
+    private String email;
+    private String username;
+    private String password;
+    private String role;
 }
