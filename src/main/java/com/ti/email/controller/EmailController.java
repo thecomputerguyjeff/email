@@ -17,9 +17,9 @@ public class EmailController {
     }
 
 
-    @PostMapping("/saveEmail")//sends an email
-    public Email saveEmail(@RequestBody Email email) {
-        return emailService.saveEmail(email);
+    @PostMapping("/sendEmail")//sends an email
+    public Email sendEmail(@RequestBody Email email) {
+        return emailService.sendEmail(email);
     }
 
     @GetMapping(value = "/getEmail/{emailId}")//gets a whole email object when pass in the object_id

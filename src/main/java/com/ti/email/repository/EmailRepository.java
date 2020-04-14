@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface EmailRepository extends Repository<Email,String> {
     List<Email> findAllBySendToEmailAddress(String emailAddress);
-    Email saveEmail(Email email);
+    Email sendEmail(Email email);
     Email getEmailBy_id(String emailId);
 }
 

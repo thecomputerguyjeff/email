@@ -31,7 +31,7 @@ public class MongoDBEmailRepository implements EmailRepository{
         return operations.findOne(query,Email.class);
     }
     @Override
-    public Email saveEmail(Email email){
+    public Email sendEmail(Email email){
     return operations.save(email);
     }
 }
