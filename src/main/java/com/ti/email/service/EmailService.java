@@ -4,6 +4,8 @@ import com.ti.email.model.Email;
 import com.ti.email.repository.MongoDBEmailRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmailService {
     private final MongoDBEmailRepository mongoDBEmailRepository;
@@ -12,6 +14,11 @@ public class EmailService {
     }
     public Email getEmailBy_id(String emailId) {
         return mongoDBEmailRepository.getEmailBy_id(emailId);
+
+    }
+
+    public List<Email> getSentBy_id(String userId) {
+        return mongoDBEmailRepository.findAllSentByBy_id(userId);
 
     }
 }
