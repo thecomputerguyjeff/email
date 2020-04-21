@@ -14,8 +14,7 @@ public class EmailService {
         return mongoDBEmailRepository.getEmailBy_id(emailId);
 
     }
-
-    public Email save(Email email) {
-        return mongoDBEmailRepository.sendEmail(email);
+    public Email save(Email email){
+        return mongoDBEmailRepository.save(email);
     }
 }
