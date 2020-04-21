@@ -2,7 +2,6 @@ package com.ti.email.controller;
 
 import com.ti.email.model.Email;
 import com.ti.email.service.EmailService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,7 +20,7 @@ public class EmailController {
     }
 
     @PostMapping(value ="/sendEmail")//sends an email
-    public Email save(Email email){
+    public Email save(@RequestBody Email email){
         return emailService.save(email);
     }
 
