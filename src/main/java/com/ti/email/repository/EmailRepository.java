@@ -9,4 +9,6 @@ import java.util.List;
 public interface EmailRepository extends Repository<Email,String> {
     List<Email> findAllBySendToEmailAddress(String emailAddress);
     Email getEmailBy_id(String emailId);
-}
+    List<Email> findAllSentByBy_id(String userId);
+
+    }
