@@ -30,4 +30,11 @@ public class MongoDBEmailRepository implements EmailRepository{
         Query query=query(where("_id").is(emailId));
         return operations.findOne(query,Email.class);
     }
+
+    public List<Email> findAllSentByBy_id(String userId) {
+        Query query=query(where("_id").is(userId));
+        query.fields().exclude("_id");
+        return operations.find(query,Email.class);
+    }
 }
+

@@ -2,8 +2,9 @@ package com.ti.email.controller;
 
 import com.ti.email.model.Email;
 import com.ti.email.service.EmailService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -20,6 +21,9 @@ public class EmailController {
         return emailService.getEmailBy_id(emailId);
     }
 
-
+    @GetMapping(value = "/getSent/{user}")//gets all mail in users sent folder
+    public List<Email> getSent(@PathVariable String user){
+        return emailService.getSentBy_id(user);
+    }
 
 }
