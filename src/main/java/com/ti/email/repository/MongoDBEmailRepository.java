@@ -26,12 +26,14 @@ public class MongoDBEmailRepository implements EmailRepository{
         return operations.find(query,Email.class);
     }
 
+    @Override
+
     public Email getEmailBy_id(String emailId) {
         Query query=query(where("_id").is(emailId));
         return operations.findOne(query,Email.class);
     }
     @Override
-    public Email sendEmail(Email email){
+    public Email save(Email email){
     return operations.save(email);
     }
 }
