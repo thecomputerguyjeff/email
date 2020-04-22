@@ -23,6 +23,12 @@ public class EmailController {
     public Email save(@RequestBody Email email){
         return emailService.save(email);
     }
+//    @GetMapping(value = "/getSent/{userId}")
+//    public List<Email> getSent(@PathVariable String userId){
+//        return emailService.getSentBy_id(userId);
+//    }
+
+
 
 
 

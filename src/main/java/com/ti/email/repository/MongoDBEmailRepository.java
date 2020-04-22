@@ -4,7 +4,9 @@ import com.ti.email.model.Email;
 
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -12,7 +14,7 @@ import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
 
 @Repository
-public class MongoDBEmailRepository implements EmailRepository{
+public class MongoDBEmailRepository<exceptions> implements EmailRepository{
 
     private final MongoOperations operations;
     public MongoDBEmailRepository(MongoOperations operations){
@@ -22,8 +24,16 @@ public class MongoDBEmailRepository implements EmailRepository{
     @Override
     public List<Email> findAllBySendToEmailAddress(String emailAddress ) {
         Query query=query(where("sendToEmailAddress").is(emailAddress));
+        if (query.equals(null)){
+            throw new ResponseStatusException(
+                HttpStatus.NOT_FOUND, "entity not found"
+        );}
         query.fields().exclude("emailText").exclude("sendToEmailAddress");
         return operations.find(query,Email.class);
+    }
+
+    public String getMessage() {
+        return "error! invalid input!";
     }
 
     public Email getEmailBy_id(String emailId) {
@@ -40,7 +50,10 @@ public class MongoDBEmailRepository implements EmailRepository{
 //    public List<Email> findAllSentByBy_id(String userId) {
 //        Query query=query(where("_id").is(userId));
 //        query.fields().exclude("_id");
-//        return operations.find(query,Email.class);
+//        if (query ==null){
+ //       throw new ResponseStatusException(
+//                HttpStatus.NOT_FOUND, "entity not found"
+ //       );}       return operations.find(query,Email.class);
 //    }
 
 
