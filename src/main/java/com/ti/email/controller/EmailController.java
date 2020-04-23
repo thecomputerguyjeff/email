@@ -21,9 +21,4 @@ public class EmailController {
         return emailService.getEmailBy_id(emailId);
     }
 
-    @GetMapping(value = "/getSent/{user}")//gets all mail in users sent folder
-    public List<Email> getSent(@PathVariable String user){
-        return emailService.getSentBy_id(user);
-    }
-
 }

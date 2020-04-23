@@ -17,8 +17,4 @@ public class EmailService {
 
     }
 
-    public List<Email> getSentBy_id(String userId) {
-        return mongoDBEmailRepository.findAllSentByBy_id(userId);
-
-    }
 }

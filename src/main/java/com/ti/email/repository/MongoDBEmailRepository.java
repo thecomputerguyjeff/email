@@ -4,7 +4,9 @@ import com.ti.email.model.Email;
 
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -31,9 +33,9 @@ public class MongoDBEmailRepository implements EmailRepository{
         return operations.findOne(query,Email.class);
     }
 
-    public List<Email> findAllSentByBy_id(String userId) {
-        Query query=query(where("_id").is(userId));
-        query.fields().exclude("_id");
+    public List<Email> findAllBySentFromEmailAddress(String emailAddress) {
+        Query query=query(where("sentFromEmailAddress").is(emailAddress));
+        query.fields().exclude("emailText");
         return operations.find(query,Email.class);
     }
 }
