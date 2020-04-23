@@ -14,7 +14,7 @@ import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
 
 @Repository
-public class MongoDBEmailRepository<exceptions> implements EmailRepository{
+public class MongoDBEmailRepository implements EmailRepository{
 
     private final MongoOperations operations;
     public MongoDBEmailRepository(MongoOperations operations){
@@ -32,9 +32,6 @@ public class MongoDBEmailRepository<exceptions> implements EmailRepository{
         return operations.find(query,Email.class);
     }
 
-    public String getMessage() {
-        return "error! invalid input!";
-    }
 
     public Email getEmailBy_id(String emailId) {
         Query query=query(where("_id").is(emailId));
@@ -46,15 +43,7 @@ public class MongoDBEmailRepository<exceptions> implements EmailRepository{
         return operations.save(email);
     }
 
-//    @Override
-//    public List<Email> findAllSentByBy_id(String userId) {
-//        Query query=query(where("_id").is(userId));
-//        query.fields().exclude("_id");
-//        if (query ==null){
- //       throw new ResponseStatusException(
-//                HttpStatus.NOT_FOUND, "entity not found"
- //       );}       return operations.find(query,Email.class);
-//    }
+
 
 
 
