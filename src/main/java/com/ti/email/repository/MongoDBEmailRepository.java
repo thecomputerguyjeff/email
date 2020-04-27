@@ -24,9 +24,14 @@ public class MongoDBEmailRepository implements EmailRepository{
     @Override
     public List<Email> findAllBySendToEmailAddress(String emailAddress ) {
         Query query=query(where("sendToEmailAddress").is(emailAddress));
-        query.fields().exclude("_id").exclude("emailText");
+        if (query.equals(null)){
+            throw new ResponseStatusException(
+                HttpStatus.NOT_FOUND, "entity not found"
+        );}
+        query.fields().exclude("emailText").exclude("sendToEmailAddress");
         return operations.find(query,Email.class);
     }
+
 
     public Email getEmailBy_id(String emailId) {
         Query query=query(where("_id").is(emailId));
@@ -34,9 +39,18 @@ public class MongoDBEmailRepository implements EmailRepository{
     }
 
     public List<Email> findAllBySentFromEmailAddress(String emailAddress) {
-        Query query=query(where("sentFromEmailAddress").is(emailAddress));
+        Query query = query(where("sentFromEmailAddress").is(emailAddress));
         query.fields().exclude("emailText");
-        return operations.find(query,Email.class);
+        return operations.find(query, Email.class);
     }
-}
 
+    @Override
+    public Email save(Email email) {
+        return operations.save(email);
+    }
+
+
+
+
+
+}

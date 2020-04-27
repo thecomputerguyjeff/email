@@ -21,4 +21,8 @@ public class EmailController {
         return emailService.getEmailBy_id(emailId);
     }
 
+    @PostMapping(value ="/sendEmail")//sends an email
+    public Email save(@RequestBody Email email){
+        return emailService.save(email);
+    }
 }
