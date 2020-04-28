@@ -21,8 +21,4 @@ public class UserController {
         return userService.getMyInbox(userID);
     }
 
-//    @PostMapping(value = "/saveUser")
-//    public User saveUser(@RequestBody User user){
-//        return userService.save(user);
-//    }
 }

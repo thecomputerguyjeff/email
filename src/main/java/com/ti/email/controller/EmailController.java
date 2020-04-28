@@ -4,8 +4,6 @@ import com.ti.email.model.Email;
 import com.ti.email.service.EmailService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api")
 @CrossOrigin
@@ -21,9 +19,14 @@ public class EmailController {
         return emailService.getEmailBy_id(emailId);
     }
 
-    @GetMapping(value = "/getSent/{user}")//gets all mail in users sent folder
-    public List<Email> getSent(@PathVariable String user){
-        return emailService.getSentBy_id(user);
+    @PostMapping(value ="/sendEmail")//sends an email
+    public Email save(@RequestBody Email email){
+        return emailService.save(email);
     }
+
+
+
+
+
 
 }
