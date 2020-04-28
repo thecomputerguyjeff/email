@@ -21,7 +21,7 @@ repositories {
 }
 
 node {
-	version = '10.15.1'
+	version = '12.16.2'
 	npmVersion = '6.14.4'
 	download = true
 }
@@ -43,9 +43,11 @@ task buildReactApp(type: NodeTask, dependsOn: 'npmInstall') {
 	args = [
 		'--mode', 'development',
 		'--entry', './client/src/index.js',
-		'-o', './src/main/resources/react-app.js'
+		'-o', './server/main/resources/react-app.js'
 	]
 }
+
+processResources.dependsOn 'buildReactApp'
 
 test {
 	useJUnitPlatform()

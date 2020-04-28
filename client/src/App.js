@@ -1,26 +1,30 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import LoginScreen from './component/loginscreen.js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  constructor() {
+    super()
+
+    this.state = {
+      userId = null
+
+    }
+  }
+
+
+  render() {
+    return (
+      <div>
+        <LoginScreen setUserId={(userId) => {this.setState(userId)}} />
+        <Inbox userId ={this.state.userId}/>> 
+      
+
+      </div>
+    );
+  }
 }
 
 export default App;
