@@ -23,7 +23,7 @@ task buildReactApp(type: NodeTask) {
 	args = [
 		'--mode', 'development',
 		'--entry', './src/index.js',
-		'-o', '../server/main/resources/static/react-app.js'
+		'-o', '../src/main/resources/static/react-app.js'
 	]
 }
 
