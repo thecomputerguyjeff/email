@@ -1,5 +1,6 @@
 package com.ti.email.repository;
 
+import com.ti.email.model.Email;
 import com.ti.email.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;

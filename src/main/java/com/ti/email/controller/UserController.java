@@ -21,4 +21,13 @@ public class UserController {
         return userService.getMyInbox(userID);
     }
 
+    @GetMapping(value = "/getSent/{userId}")//gets all mail in users sent folder
+    public List<Email> getMySent(@PathVariable String userId){
+        return userService.getMySentEmails(userId);
+    }
+
+//    @PostMapping(value = "/saveUser")
+//    public User saveUser(@RequestBody User user){
+//        return userService.save(user);
+//    }
 }
