@@ -1,7 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import LoginScreen from './component/loginscreen.js'
+import LoginScreen from './components/loginscreen.js'
 
 class App extends React.Component {
 
@@ -9,7 +8,7 @@ class App extends React.Component {
     super()
 
     this.state = {
-      userId = null
+      userId : null,
 
     }
   }
@@ -18,8 +17,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <LoginScreen setUserId={(userId) => {this.setState(userId)}} />
-        <Inbox userId ={this.state.userId}/>> 
+        {/* <LoginScreen setUserId={(userId) => {this.setState(userId)}} /> */}
+        {/* <Inbox userId ={this.state.userId}/>>  */}
       
 
       </div>
