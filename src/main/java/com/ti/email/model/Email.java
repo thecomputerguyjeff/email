@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Data
@@ -19,9 +20,13 @@ import java.util.List;
 public class Email {
     @Id
     private String _id;
+    @NotNull(message = "Send to email address is required")
     private List<String> sendToEmailAddress;
+    @NotNull(message = "Sent from email address is required")
     private String sentFromEmailAddress;
+    @NotNull(message = "Subject is required")
     private String subject;
+    @NotNull(message = "Email text is required")
     private String emailText;
 
     //This is the format of the emails

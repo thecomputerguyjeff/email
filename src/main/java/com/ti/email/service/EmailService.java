@@ -25,7 +25,4 @@ public class EmailService {
     public String errorMessage(){
         return "error!invalid input! please try again";
     }
-//    public List<Email> getSentByBy_Id(String userId){
-//        return mongoDBEmailRepository.getSentByBy_Id(userId);
-//    }
 }

@@ -38,6 +38,12 @@ public class MongoDBEmailRepository implements EmailRepository{
         return operations.findOne(query,Email.class);
     }
 
+    public List<Email> findAllBySentFromEmailAddress(String emailAddress) {
+        Query query = query(where("sentFromEmailAddress").is(emailAddress));
+        query.fields().exclude("emailText");
+        return operations.find(query, Email.class);
+    }
+
     @Override
     public Email save(Email email) {
         return operations.save(email);

@@ -4,6 +4,7 @@ import com.ti.email.model.Email;
 import com.ti.email.model.User;
 import com.ti.email.repository.MongoDBEmailRepository;
 import com.ti.email.repository.MongoDBUserRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,10 +19,20 @@ public class UserService {
     }
 
 
-    public List<Email> getMyInbox(String userID) {
+    public List<Email> getMyInbox(String userID)
+    {
         User me=mongoDBUserRepository.findOneBy_id(userID);
         String emailAddress=me.getEmail();
+
         return mongoDBEmailRepository.findAllBySendToEmailAddress(emailAddress);
+    }
+
+    public List<Email> getMySentEmails(String userID) {
+
+        User me=mongoDBUserRepository.findOneBy_id(userID);
+        String emailAddress=me.getEmail();
+
+        return mongoDBEmailRepository.findAllBySentFromEmailAddress(emailAddress);
     }
 
 //    public User save(User user) {
