@@ -2,10 +2,10 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 class LoginScreen extends React.Component {
-    const LoginScreen = (props) =>
-    return(
-<Form>
-<FormGroup>
+    render() {
+        return(
+    <Form>
+    <FormGroup>
         <Label for="exampleEmail">User Name</Label>
         <Input type="username" name="username" id="exampleName" placeholder="John Doe" />
         </FormGroup>
@@ -17,5 +17,5 @@ class LoginScreen extends React.Component {
 </Form>
 );
 }
-
+}
 export default LoginScreen
