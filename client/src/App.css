@@ -1,6 +1,44 @@
 .App {
   text-align: center;
 }
+body {
+  margin: 0;
+}
+
+.box.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.box {
+  justify-content: center;
+  align-items: center;
+  padding: .5rem;
+  height: 300px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.03);
+  border-radius: 4px;
+  box-width: 600px;
+  box-height: 600px;
+
+  color: #84613D;
+  font-family: "Lucida Console", Monaco, monospace;
+  background: #FDF9EA;
+  background-width:400px;
+  border-bottom: 1px solid #F9F2D6;
+  border-right: 1px solid #F9F2D6;
+}
+
+
+.box p {
+  max-width: 125px;
+  text-align: center;
+  background: rgba(255,255,255,0.5);
+  margin: .25rem;
+  padding: .25rem;
+  box-width: 400px;
+  box-height: 400px;
+}
 
 .App-logo {
   height: 40vmin;

@@ -18,7 +18,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        //This is react App.js
+        {/*//This is react App.js*/}
         { <LoginScreen setUserId={(userId) => {this.props(userId)}} /> }
         {/* <Inbox userId ={this.state.userId}/>>  */}
       
