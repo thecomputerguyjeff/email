@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import LoginScreen from './components/loginscreen.js'
 import Inbox from './components/inbox.js'
