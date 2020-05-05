@@ -1,13 +1,17 @@
 package com.ti.email.repository;
 
 import com.ti.email.model.Email;
+import com.ti.email.model.Login;
 import com.ti.email.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.server.ResponseStatusException;
 
+import javax.xml.bind.SchemaOutputResolver;
 import java.util.List;
 
 import static org.springframework.data.mongodb.core.query.Criteria.where;
@@ -29,6 +33,19 @@ public class MongoDBUserRepository implements UserRepository{
         Query query=query(where("_id").is(id));
 
         return operations.findOne(query,User.class);
+    }
+
+    public User login(Login credentials) {
+        Query query=query(where("username").is(credentials.getUsername()));
+        query.addCriteria(where("password").is(credentials.getPassword()));
+        query.fields().exclude("name").exclude("email").exclude("username").exclude("password").exclude("role");
+        User me;
+        try {
+            me= operations.findOne(query, User.class);
+        }catch(Exception e){
+            return null;
+        }
+        return me;
     }
 
 //    public User save(User user) {
