@@ -34,21 +34,10 @@ public class MongoDBUserRepository implements UserRepository{
 
         return operations.findOne(query,User.class);
     }
-//    public List<Email> findAllBySendToEmailAddress(String emailAddress ) {
-//        Query query=query(where("sendToEmailAddress").is(emailAddress));
-//        if (query.equals(null)){
-//            throw new ResponseStatusException(
-//                    HttpStatus.NOT_FOUND, "entity not found"
-//            );}
-//        query.fields().exclude("emailText").exclude("sendToEmailAddress");
-//        return operations.find(query,Email.class);
-//    }
+
     public User login(Login credentials) {
         Query query=query(where("username").is(credentials.getUsername()));
         query.addCriteria(where("password").is(credentials.getPassword()));
-//        if(query.equals(null)){
-//            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Invalid Username and/or Password");
-//        }
         query.fields().exclude("name").exclude("email").exclude("username").exclude("password").exclude("role");
         User me;
         try {
