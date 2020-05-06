@@ -23,7 +23,7 @@ public class EmailController {
 
     @PostMapping(value ="/sendEmail")//sends an email
     public Email save(@RequestBody Email email) throws Exception {
-        if(email == null || email.getSendToEmailAddress() == null || email.getSentFromEmailAddress() == null || email.getSubject() == null || email.getEmailText() == null){
+        if(null == email || null == email.getSendToEmailAddress() || null == email.getSentFromEmailAddress() || null == email.getSubject() || null == email.getEmailText()){
             throw new Exception("Invalid email request body");
         }
         return emailService.save(email);
