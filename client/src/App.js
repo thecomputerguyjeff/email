@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
 import LoginScreen from './components/loginscreen.js'
-import Inbox from './components/inbox.js'
-// import { Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 class App extends React.Component {
 
 
@@ -16,11 +15,11 @@ class App extends React.Component {
   }
 
 
+
   render() {
     return (
       <div>
-        //This is react App.js
-        
+        {/*//This is react App.js*/}
         { <LoginScreen setUserId={(userId) => {this.props(userId)}} /> }
         <Inbox userId ={this.state.userId}/>
       
