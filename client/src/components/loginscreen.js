@@ -7,6 +7,44 @@ import {
 import '../App.css';
 
 class LoginScreen extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            username: null,
+            password: null
+        };
+
+        this.submit = this.submit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange({ target }) {
+        this.setState({
+            [target.name]: target.value
+        });
+    }
+    submit() {
+        let data = {
+            'Username': this.state.username,
+            'Password': this.state.password
+        }
+        fetch('https://ti-survey-server.herokuapp.com/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+            .then((response) =>{
+                if(response.status===200){
+                    this.setState({renderModal:true})
+                }
+            })
+            .catch((error)=> {
+                console.log("error=",error);
+            });
+
+    }
     render() {
         return(
             <div class ="box flex">
@@ -16,14 +54,24 @@ class LoginScreen extends React.Component {
         <FormGroup >
         <h2>Sign In</h2>
         <Label for="exampleEmail">User Name</Label>
-        <Input type="username" onChange={submitEmail()} name="username" id="exampleName" placeholder="John Doe" />
+        <Input type="username"
+               name="username"
+               id="exampleName"
+               value={ this.state.username }
+               onChange={ this.handleChange }
+               placeholder="John Doe" />
         </FormGroup>
         <FormGroup>
         <Label for="examplePassword">Password</Label>
-        <Input type="password" onChange={submitForm()} name="password" id="examplePassword" placeholder="Password goes here" />
+        <Input type="password"
+               name="password"
+               id="examplePassword"
+               value={ this.state.password }
+               onChange={ this.handleChange }
+               placeholder="Password goes here" />
         </FormGroup>
         </Col>
-        <button onClick="submitFunction()">Submit</button>
+        <button onClick={ this.submit }>Submit</button>
         <script>
 
         </script>
@@ -31,15 +79,7 @@ class LoginScreen extends React.Component {
             </Container></div>
 
 );}
-    submitForm(e) {
-        e.preventDefault();
-        console.log(`Email: ${ this.state.email }`)
-    }
-
-        function submitFunction() {
-            //loginService.login(credentials);
-            document.getElementById("userId").//? ;
-        }
+//fetch statement....dif btwn post, get
 
 }
 export default LoginScreen

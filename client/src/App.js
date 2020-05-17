@@ -21,7 +21,7 @@ class App extends React.Component {
       <div>
         {/*//This is react App.js*/}
         { <LoginScreen setUserId={(userId) => {this.props(userId)}} /> }
-        <Inbox userId ={this.state.userId}/>
+        {/*<Inbox userId ={this.state.userId}/>*/}
       
 
       </div>
