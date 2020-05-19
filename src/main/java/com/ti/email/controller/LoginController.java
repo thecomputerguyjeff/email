@@ -1,6 +1,7 @@
 package com.ti.email.controller;
 
 import com.ti.email.model.Login;
+import com.ti.email.model.UserID;
 import com.ti.email.service.LoginService;
 import com.ti.email.service.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,7 @@ public class LoginController {
     }
 
     @PostMapping(value="/login")
-    public String login(@RequestBody Login credentials){
+    public UserID login(@RequestBody Login credentials){
         return loginService.login(credentials);
     }
 
