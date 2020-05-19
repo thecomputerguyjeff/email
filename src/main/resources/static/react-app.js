@@ -46116,8 +46116,8 @@ var LoginScreen = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this);
     _this.state = {
-      username: null,
-      password: null
+      username: "",
+      password: ""
     };
     _this.submit = _this.submit.bind(_assertThisInitialized(_this));
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
@@ -46135,11 +46135,12 @@ var LoginScreen = /*#__PURE__*/function (_React$Component) {
     value: function submit() {
       var _this2 = this;
 
+      debugger;
       var data = {
-        'Username': this.state.username,
-        'Password': this.state.password
+        'username': this.state.username,
+        'password': this.state.password
       };
-      fetch('https://ti-survey-server.herokuapp.com/api/login', {
+      fetch('https://ti-email.herokuapp.com/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -46159,8 +46160,6 @@ var LoginScreen = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "box flex"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Container"], {
         className: "box flex"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Form"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["FormGroup"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Sign In"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Label"], {
         for: "exampleEmail"
@@ -46182,7 +46181,7 @@ var LoginScreen = /*#__PURE__*/function (_React$Component) {
         placeholder: "Password goes here"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.submit
-      }, "Submit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", null))));
+      }, "Submit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", null)));
     } //fetch statement....dif btwn post, get
 
   }]);
