@@ -10,8 +10,8 @@ class LoginScreen extends React.Component {
     constructor() {
         super();
         this.state = {
-            username: null,
-            password: null
+            username: "",
+            password: ""
         };
 
         this.submit = this.submit.bind(this);
@@ -24,11 +24,12 @@ class LoginScreen extends React.Component {
         });
     }
     submit() {
+        debugger;
         let data = {
-            'Username': this.state.username,
-            'Password': this.state.password
+            'username': this.state.username,
+            'password': this.state.password
         }
-        fetch('https://ti-survey-server.herokuapp.com/api/login', {
+        fetch('https://ti-email.herokuapp.com/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -47,8 +48,8 @@ class LoginScreen extends React.Component {
     }
     render() {
         return(
-            <div class ="box flex">
-            <Container className="box flex">
+            <div className ="box flex">
+            {/*<Container className="box flex">*/}
     <Form>
         <Col>
         <FormGroup >
@@ -76,7 +77,8 @@ class LoginScreen extends React.Component {
 
         </script>
 </Form>
-            </Container></div>
+            {/*</Container>*/}
+            </div>
 
 );}
 //fetch statement....dif btwn post, get
