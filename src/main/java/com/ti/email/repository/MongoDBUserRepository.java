@@ -36,6 +36,9 @@ public class MongoDBUserRepository implements UserRepository{
     }
 
     public User login(Login credentials) {
+        if(credentials.getUsername()==null||credentials.getPassword()==null){
+            return null;
+        }
         Query query=query(where("username").is(credentials.getUsername()));
         query.addCriteria(where("password").is(credentials.getPassword()));
         query.fields().exclude("name").exclude("email").exclude("username").exclude("password").exclude("role");
