@@ -5,7 +5,6 @@ import {
     Button,
 } from 'reactstrap';
 import '../App.css';
-
 class LoginScreen extends React.Component {
     constructor() {
         super();
@@ -38,13 +37,21 @@ class LoginScreen extends React.Component {
         })
             .then((response) =>{
                 if(response.status===200){
-                    this.setState({renderModal:true})
+                    this.props.setUserId(response);
                 }
             })
             .catch((error)=> {
                 console.log("error=",error);
             });
 
+    }
+    setUserId(i) {
+        return (
+            <serId
+                value={this.props.userId[i]}
+                onClick={() => this.props.onClick(i)}
+            />
+        );
     }
     render() {
         return(
@@ -86,10 +93,6 @@ class LoginScreen extends React.Component {
         console.log(`Email: ${ this.state.email }`)
     }
 
-        function submitFunction() {
-            //loginService.login(credentials);
-            document.getElementById("userId");
-        }
 
 }
 export default LoginScreen

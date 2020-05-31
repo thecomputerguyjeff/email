@@ -45998,6 +45998,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_App_css__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_loginscreen_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/loginscreen.js */ "./src/components/loginscreen.js");
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+/* harmony import */ var _components_inbox_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/inbox.js */ "./src/components/inbox.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -46025,17 +46026,18 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var App = /*#__PURE__*/function (_React$Component) {
   _inherits(App, _React$Component);
 
   var _super = _createSuper(App);
 
-  function App() {
+  function App(props) {
     var _this;
 
     _classCallCheck(this, App);
 
-    _this = _super.call(this);
+    _this = _super.call(this, props);
     _this.state = {
       userId: null
     };
@@ -46051,6 +46053,8 @@ var App = /*#__PURE__*/function (_React$Component) {
         setUserId: function setUserId(userId) {
           _this2.props(userId);
         }
+      }), " */}", this.state.userId && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_inbox_js__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        userId: this.state.userId
       }));
     }
   }]);
@@ -46059,6 +46063,110 @@ var App = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./src/components/inbox.js":
+/*!*********************************!*\
+  !*** ./src/components/inbox.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var Inbox = /*#__PURE__*/function (_React$Component) {
+  _inherits(Inbox, _React$Component);
+
+  var _super = _createSuper(Inbox);
+
+  function Inbox(props) {
+    var _this;
+
+    _classCallCheck(this, Inbox);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      userId: _this.props.userId,
+      emails: [],
+      isLoading: true
+    };
+    _this.loadInbox = _this.loadInbox.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Inbox, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.loadInbox();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.isLoading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "loader"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        class: "fa fa-refresh fa-spin fa-5x fa-fw"
+      }), "Loading\xA0inbox\xA0in\xA0progress.\xA0Please\xA0wait...") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "your emails are loaded"));
+    }
+  }, {
+    key: "loadInbox",
+    value: function loadInbox() {
+      var _this2 = this;
+
+      fetch("http://localhost:8080/api/getInbox/" + this.state.userId).then(function (res) {
+        return res.json();
+      }, function (err) {
+        console.log("Couldn't access the database.");
+        console.log(err);
+      }).then(function (json) {
+        _this2.setState({
+          emails: json,
+          isLoading: false
+        });
+      }, function (error) {
+        console.log("There was an error mapping to json");
+        console.log(err);
+
+        _this2.setState({
+          isLoading: false
+        });
+
+        alert("There was an error." + error);
+      });
+    }
+  }]);
+
+  return Inbox;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Inbox);
 
 /***/ }),
 
@@ -46102,7 +46210,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
+ // need callback funstion to save data into state
+//make error messages
 
 var LoginScreen = /*#__PURE__*/function (_React$Component) {
   _inherits(LoginScreen, _React$Component);
@@ -46182,8 +46291,13 @@ var LoginScreen = /*#__PURE__*/function (_React$Component) {
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.submit
       }, "Submit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", null)));
-    } //fetch statement....dif btwn post, get
-
+    }
+  }, {
+    key: "submitForm",
+    value: function submitForm(e) {
+      e.preventDefault();
+      console.log("Email: ".concat(this.state.email));
+    }
   }]);
 
   return LoginScreen;
@@ -46241,121 +46355,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./index.css */ "./src/index.css");
 /* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./App */ "./src/App.js");
-/* harmony import */ var _serviceWorker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./serviceWorker */ "./src/serviceWorker.js");
 
 
 
 
-
+ // import * as serviceWorker from './serviceWorker';
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.StrictMode, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_4__["default"], null)), document.getElementById('react-mountpoint')); // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-
-_serviceWorker__WEBPACK_IMPORTED_MODULE_5__["unregister"]();
-
-/***/ }),
-
-/***/ "./src/serviceWorker.js":
-/*!******************************!*\
-  !*** ./src/serviceWorker.js ***!
-  \******************************/
-/*! exports provided: register, unregister */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "register", function() { return register; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unregister", function() { return unregister; });
-// This optional code is used to register a service worker.
-// register() is not called by default.
-// This lets the app load faster on subsequent visits in production, and gives
-// it offline capabilities. However, it also means that developers (and users)
-// will only see deployed updates on subsequent visits to a page, after all the
-// existing tabs open on the page have been closed, since previously cached
-// resources are updated in the background.
-// To learn more about the benefits of this model and instructions on how to
-// opt-in, read https://bit.ly/CRA-PWA
-var isLocalhost = Boolean(window.location.hostname === 'localhost' || // [::1] is the IPv6 localhost address.
-window.location.hostname === '[::1]' || // 127.0.0.0/8 are considered localhost for IPv4.
-window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/));
-function register(config) {
-  if (false) { var publicUrl; }
-}
-
-function registerValidSW(swUrl, config) {
-  navigator.serviceWorker.register(swUrl).then(function (registration) {
-    registration.onupdatefound = function () {
-      var installingWorker = registration.installing;
-
-      if (installingWorker == null) {
-        return;
-      }
-
-      installingWorker.onstatechange = function () {
-        if (installingWorker.state === 'installed') {
-          if (navigator.serviceWorker.controller) {
-            // At this point, the updated precached content has been fetched,
-            // but the previous service worker will still serve the older
-            // content until all client tabs are closed.
-            console.log('New content is available and will be used when all ' + 'tabs for this page are closed. See https://bit.ly/CRA-PWA.'); // Execute callback
-
-            if (config && config.onUpdate) {
-              config.onUpdate(registration);
-            }
-          } else {
-            // At this point, everything has been precached.
-            // It's the perfect time to display a
-            // "Content is cached for offline use." message.
-            console.log('Content is cached for offline use.'); // Execute callback
-
-            if (config && config.onSuccess) {
-              config.onSuccess(registration);
-            }
-          }
-        }
-      };
-    };
-  }).catch(function (error) {
-    console.error('Error during service worker registration:', error);
-  });
-}
-
-function checkValidServiceWorker(swUrl, config) {
-  // Check if the service worker can be found. If it can't reload the page.
-  fetch(swUrl, {
-    headers: {
-      'Service-Worker': 'script'
-    }
-  }).then(function (response) {
-    // Ensure service worker exists, and that we really are getting a JS file.
-    var contentType = response.headers.get('content-type');
-
-    if (response.status === 404 || contentType != null && contentType.indexOf('javascript') === -1) {
-      // No service worker found. Probably a different app. Reload the page.
-      navigator.serviceWorker.ready.then(function (registration) {
-        registration.unregister().then(function () {
-          window.location.reload();
-        });
-      });
-    } else {
-      // Service worker found. Proceed as normal.
-      registerValidSW(swUrl, config);
-    }
-  }).catch(function () {
-    console.log('No internet connection found. App is running in offline mode.');
-  });
-}
-
-function unregister() {
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.ready.then(function (registration) {
-      registration.unregister();
-    }).catch(function (error) {
-      console.error(error.message);
-    });
-  }
-}
+// serviceWorker.unregister();
 
 /***/ })
 

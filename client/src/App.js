@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import LoginScreen from './components/loginscreen.js'
 import { Button } from 'reactstrap';
+import Inbox from './components/inbox.js'
 class App extends React.Component {
 
 
@@ -17,10 +18,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {/*//This is react App.js*/}
-        { <LoginScreen setUserId={(userId) => {this.props(userId)}} /> }
-        {/* <Inbox userId ={this.state.userId}/>>  */}
-      
+        {<LoginScreen setUserId={(userId) => {this.setState({userId: userId})}}/> }
+        {this.state.userId&&<Inbox userId ={this.state.userId}/>}
+
 
       </div>
     );
