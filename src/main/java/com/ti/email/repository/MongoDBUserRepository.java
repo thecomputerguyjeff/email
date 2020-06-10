@@ -11,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.server.ResponseStatusException;
 
-import javax.xml.bind.SchemaOutputResolver;
 import java.util.List;
 
 import static org.springframework.data.mongodb.core.query.Criteria.where;
