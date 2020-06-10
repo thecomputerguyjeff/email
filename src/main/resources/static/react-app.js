@@ -46156,7 +46156,7 @@ var ComposeEmail = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      fetch('http://localhost:8080/api/getUsersEmail/' + this.props.userId).then(function (response) {
+      fetch('api/getUsersEmail/' + this.props.userId).then(function (response) {
         return response.json();
       }).then(function (data) {
         return _this2.setState({
@@ -46212,7 +46212,7 @@ var ComposeEmail = /*#__PURE__*/function (_React$Component) {
         subject: this.state.subject,
         emailText: this.state.email
       };
-      fetch('http://localhost:8080/api/sendEmail', {
+      fetch('api/sendEmail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -46318,7 +46318,7 @@ var Inbox = /*#__PURE__*/function (_React$Component) {
     value: function loadInbox() {
       var _this2 = this;
 
-      fetch("http://localhost:8080/api/getInbox/" + this.state.userId).then(function (res) {
+      fetch("api/getInbox/" + this.state.userId).then(function (res) {
         return res.json();
       }, function (err) {
         console.log("Couldn't access the database.");
