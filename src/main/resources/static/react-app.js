@@ -45997,7 +45997,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.css */ "./src/App.css");
 /* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_App_css__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_loginscreen_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/loginscreen.js */ "./src/components/loginscreen.js");
-/* harmony import */ var _components_loginscreen_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_loginscreen_js__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _components_inbox_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/inbox.js */ "./src/components/inbox.js");
 /* harmony import */ var _components_ComposeEmail_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/ComposeEmail.js */ "./src/components/ComposeEmail.js");
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
@@ -46053,7 +46052,7 @@ var App = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_loginscreen_js__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !this.state.userId && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_loginscreen_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
         setUserId: function setUserId(userId) {
           _this2.setState({
             userId: userId
@@ -46289,6 +46288,7 @@ var Inbox = /*#__PURE__*/function (_React$Component) {
       isLoading: true
     };
     _this.loadInbox = _this.loadInbox.bind(_assertThisInitialized(_this));
+    _this.renderInbox = _this.renderInbox.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -46298,13 +46298,20 @@ var Inbox = /*#__PURE__*/function (_React$Component) {
       this.loadInbox();
     }
   }, {
+    key: "renderInbox",
+    value: function renderInbox() {
+      return this.state.emails.map(function (e) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, e.sentFromEmailAddress), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, e.subject));
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.isLoading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "loader"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "fa fa-refresh fa-spin fa-5x fa-fw"
-      }), "Loading\xA0inbox\xA0in\xA0progress.\xA0Please\xA0wait...") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "your emails are loaded"));
+        className: "fa fa-refresh fa-spin fa-5x fa-fw"
+      }), "Loading\xA0inbox\xA0in\xA0progress.\xA0Please\xA0wait...") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "From"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Subject")), this.renderInbox())));
     }
   }, {
     key: "loadInbox",
@@ -46345,10 +46352,140 @@ var Inbox = /*#__PURE__*/function (_React$Component) {
 /*!***************************************!*\
   !*** ./src/components/loginscreen.js ***!
   \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\theco\\workspace\\email\\client\\src\\components\\loginscreen.js: Unexpected token (40:16)\n\n  38 |                 if(response.status!==200) {\n  39 |                     //throw error\n> 40 |                 .catch((error) => {\n     |                 ^\n  41 |                         console.log(\"error=\", error);\n  42 |                     })\n  43 |                 }\n    at Object._raise (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:742:17)\n    at Object.raiseWithData (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:735:17)\n    at Object.raise (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:729:17)\n    at Object.unexpected (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:8757:16)\n    at Object.parseExprAtom (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:10052:20)\n    at Object.parseExprAtom (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:4614:20)\n    at Object.parseExprSubscripts (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:9602:23)\n    at Object.parseMaybeUnary (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:9582:21)\n    at Object.parseExprOps (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:9452:23)\n    at Object.parseMaybeConditional (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:9425:23)\n    at Object.parseMaybeAssign (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:9380:21)\n    at Object.parseExpression (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:9332:23)\n    at Object.parseStatementContent (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:11210:23)\n    at Object.parseStatement (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:11081:17)\n    at Object.parseBlockOrModuleBlockBody (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:11656:25)\n    at Object.parseBlockBody (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:11642:10)\n    at Object.parseBlock (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:11626:10)\n    at Object.parseStatementContent (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:11157:21)\n    at Object.parseStatement (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:11081:17)\n    at Object.parseIfStatement (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:11433:28)\n    at Object.parseStatementContent (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:11126:21)\n    at Object.parseStatement (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:11081:17)\n    at Object.parseBlockOrModuleBlockBody (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:11656:25)\n    at Object.parseBlockBody (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:11642:10)\n    at Object.parseBlock (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:11626:10)\n    at Object.parseFunctionBody (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:10634:24)\n    at Object.parseArrowExpression (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:10603:10)\n    at Object.parseParenAndDistinguishExpression (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:10221:12)\n    at Object.parseExprAtom (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:9947:21)\n    at Object.parseExprAtom (C:\\Users\\theco\\workspace\\email\\client\\node_modules\\@babel\\parser\\lib\\index.js:4614:20)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../App.css */ "./src/App.css");
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_App_css__WEBPACK_IMPORTED_MODULE_2__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var LoginScreen = /*#__PURE__*/function (_React$Component) {
+  _inherits(LoginScreen, _React$Component);
+
+  var _super = _createSuper(LoginScreen);
+
+  function LoginScreen() {
+    var _this;
+
+    _classCallCheck(this, LoginScreen);
+
+    _this = _super.call(this);
+    _this.state = {
+      username: "",
+      password: ""
+    };
+    _this.submit = _this.submit.bind(_assertThisInitialized(_this));
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(LoginScreen, [{
+    key: "handleChange",
+    value: function handleChange(_ref) {
+      var target = _ref.target;
+      this.setState(_defineProperty({}, target.name, target.value));
+    }
+  }, {
+    key: "submit",
+    value: function submit() {
+      var _this2 = this;
+
+      var data = {
+        'username': this.state.username,
+        'password': this.state.password
+      };
+      fetch('api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      }).then(function (response) {
+        if (response.status !== 200) {
+          // .catch((error) => {
+          console.log("error= " + error); // })
+        }
+
+        return response.json();
+      }) // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+      // .then(response => response.json())
+      //this.props, not props
+      .then(function (response) {
+        return _this2.props.setUserId(response.userID);
+      }).catch(function (error) {
+        console.log("error= " + error);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "box flex"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Form"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["FormGroup"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Sign In"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Label"], {
+        for: "exampleEmail"
+      }, "User Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Input"], {
+        type: "username",
+        name: "username",
+        id: "exampleName",
+        value: this.state.username,
+        onChange: this.handleChange,
+        placeholder: "John Doe"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["FormGroup"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Label"], {
+        for: "examplePassword"
+      }, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Input"], {
+        type: "password",
+        name: "password",
+        id: "examplePassword",
+        value: this.state.password,
+        onChange: this.handleChange,
+        placeholder: "Password goes here"
+      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.submit
+      }, "Submit"));
+    }
+  }, {
+    key: "submitForm",
+    value: function submitForm(e) {
+      e.preventDefault();
+      console.log("Email: ".concat(this.state.email));
+    }
+  }]);
+
+  return LoginScreen;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (LoginScreen);
 
 /***/ }),
 

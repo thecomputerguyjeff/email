@@ -46,7 +46,8 @@ class LoginScreen extends React.Component {
                })
                    // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
                     // .then(response => response.json())
-                         .then(response=>props.setUserId(response.userId))
+                    //this.props, not props
+                         .then(response=>this.props.setUserId(response.userID))
                          .catch((error)=>{console.log("error= " + error)});
 
     }

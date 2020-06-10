@@ -20,7 +20,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                {<LoginScreen setUserId={(userId) => {
+                {!this.state.userId && <LoginScreen setUserId={(userId) => {
                     this.setState({userId: userId})
                 }}/>}
                 {this.state.userId &&

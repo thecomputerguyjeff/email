@@ -9,9 +9,16 @@ class Inbox extends React.Component {
       isLoading:true,
     }
     this.loadInbox=this.loadInbox.bind(this)
+    this.renderInbox=this.renderInbox.bind(this)
   }
   componentDidMount(){
     this.loadInbox()
+  }
+
+  renderInbox() {
+    return this.state.emails.map(e => 
+      <tr><td>{e.sentFromEmailAddress}</td><td>{e.subject}</td></tr>
+    );
   }
 
     render() {
@@ -19,13 +26,21 @@ class Inbox extends React.Component {
           <div>
             {this.state.isLoading ?
                 <div id="loader">
-                    <i class="fa fa-refresh fa-spin fa-5x fa-fw"></i>
+                    <i className="fa fa-refresh fa-spin fa-5x fa-fw"></i>
                     Loading&nbsp;inbox&nbsp;in&nbsp;progress.&nbsp;Please&nbsp;wait...
                 </div>
-            :<div>your emails are loaded</div>}
+            :<div>
+              <table>
+                <tr>
+                  <th>From</th>
+                  <th>Subject</th>
+                </tr>
+                {this.renderInbox()}
+              </table>
+              </div>}
           </div>
         );
-    }
+    };
   
     loadInbox(){
       fetch("http://localhost:8080/api/getInbox/"+this.state.userId)
