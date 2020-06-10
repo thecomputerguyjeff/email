@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import LoginScreen from './components/loginscreen.js'
-import {Button} from 'reactstrap';
 import Inbox from './components/inbox.js'
 import ComposeEmail from './components/ComposeEmail.js'
 import {Button} from 'reactstrap';
