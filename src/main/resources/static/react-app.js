@@ -46051,9 +46051,11 @@ var App = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_loginscreen_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
         setUserId: function setUserId(userId) {
-          _this2.props(userId);
+          _this2.setState({
+            userId: userId
+          });
         }
-      }), " */}", this.state.userId && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_inbox_js__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }), this.state.userId && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_inbox_js__WEBPACK_IMPORTED_MODULE_4__["default"], {
         userId: this.state.userId
       }));
     }
@@ -46210,8 +46212,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
- // need callback funstion to save data into state
-//make error messages
+
 
 var LoginScreen = /*#__PURE__*/function (_React$Component) {
   _inherits(LoginScreen, _React$Component);
@@ -46244,12 +46245,11 @@ var LoginScreen = /*#__PURE__*/function (_React$Component) {
     value: function submit() {
       var _this2 = this;
 
-      debugger;
       var data = {
         'username': this.state.username,
         'password': this.state.password
       };
-      fetch('https://ti-email.herokuapp.com/api/login', {
+      fetch('api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -46257,9 +46257,11 @@ var LoginScreen = /*#__PURE__*/function (_React$Component) {
         body: JSON.stringify(data)
       }).then(function (response) {
         if (response.status === 200) {
-          _this2.setState({
-            renderModal: true
-          });
+          // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+          fetch('http://example.com/movies.json').then(function (response) {
+            return response.json();
+          }).then(_this2.props.setUserId(response)); //parse body get userid
+          //this.props.setUserId(response);
         }
       }).catch(function (error) {
         console.log("error=", error);
@@ -46288,9 +46290,9 @@ var LoginScreen = /*#__PURE__*/function (_React$Component) {
         value: this.state.password,
         onChange: this.handleChange,
         placeholder: "Password goes here"
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.submit
-      }, "Submit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", null)));
+      }, "Submit"));
     }
   }, {
     key: "submitForm",

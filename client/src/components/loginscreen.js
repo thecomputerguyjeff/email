@@ -23,12 +23,11 @@ class LoginScreen extends React.Component {
         });
     }
     submit() {
-        debugger;
         let data = {
             'username': this.state.username,
             'password': this.state.password
         }
-        fetch('https://ti-email.herokuapp.com/api/login', {
+        fetch('api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -36,23 +35,20 @@ class LoginScreen extends React.Component {
             body: JSON.stringify(data)
         })
             .then((response) =>{
-                if(response.status===200){
-                    this.props.setUserId(response);
+                if(response.status!==200) {
+                    //throw error
+                .catch((error) => {
+                        console.log("error=", error);
+                    })
                 }
-            })
-            .catch((error)=> {
-                console.log("error=",error);
-            });
+
+               })
+                   // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+                    .then(response => response.json())
+                         .then(response=>props.setUserId(response.userId));
 
     }
-    setUserId(i) {
-        return (
-            <serId
-                value={this.props.userId[i]}
-                onClick={() => this.props.onClick(i)}
-            />
-        );
-    }
+
     render() {
         return(
             <div className ="box flex">
@@ -78,12 +74,10 @@ class LoginScreen extends React.Component {
                onChange={ this.handleChange }
                placeholder="Password goes here" />
         </FormGroup>
-        </Col>
+        </Col></Form>
         <button onClick={ this.submit }>Submit</button>
-        <script>
 
-        </script>
-</Form>
+
             {/*</Container>*/}
             </div>
 
