@@ -35,6 +35,10 @@ public class UserService {
         return mongoDBEmailRepository.findAllBySentFromEmailAddress(emailAddress);
     }
 
+    public User getMyEmailAddress(String userId) {
+        return mongoDBUserRepository.findOneBy_id(userId);
+    }
+
 //    public User save(User user) {
 //        return mongoDBUserRepository.save(user);
 //    }

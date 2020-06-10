@@ -1,6 +1,7 @@
 package com.ti.email.controller;
 
 import com.ti.email.model.Email;
+import com.ti.email.model.User;
 import com.ti.email.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +26,12 @@ public class UserController {
     public List<Email> getMySent(@PathVariable String userId){
         return userService.getMySentEmails(userId);
     }
+
+    @GetMapping(value = "/getUsersEmail/{userId}")//gets all mail in users sent folder
+    public User getMyEmailAddress(@PathVariable String userId){
+        return userService.getMyEmailAddress(userId);
+    }
+
 
 //    @PostMapping(value = "/saveUser")
 //    public User saveUser(@RequestBody User user){
