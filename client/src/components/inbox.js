@@ -43,7 +43,7 @@ class Inbox extends React.Component {
     };
   
     loadInbox(){
-      fetch("http://localhost:8080/api/getInbox/"+this.state.userId)
+      fetch("api/getInbox/"+this.state.userId)
       .then(res => 
         res.json(),
         (err)=>{

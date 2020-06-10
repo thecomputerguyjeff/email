@@ -17,7 +17,7 @@ class ComposeEmail extends React.Component {
         this.setState({ [event.target.name]: event.target.value})
     }
     componentDidMount() {
-        fetch('http://localhost:8080/api/getUsersEmail/'+this.props.userId)
+        fetch('api/getUsersEmail/'+this.props.userId)
             .then(response => response.json())
             .then(data => this.setState({sendFrom:data.email}));
     }
@@ -52,7 +52,7 @@ class ComposeEmail extends React.Component {
             subject:this.state.subject,
             emailText:this.state.email,
         }
-        fetch('http://localhost:8080/api/sendEmail', {
+        fetch('api/sendEmail', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
